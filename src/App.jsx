@@ -8,6 +8,12 @@ function isEven(x) {
     return x % 2 === 0;
 }
 
+function ChildComponent({ incFunc }) {
+  return (
+    <button onClick={incFunc}>Increment Counter</button>
+  );
+}
+
 
 const MessageComponent = ({message}) => <p>{message}</p>;
 
@@ -26,6 +32,10 @@ function App() {
 
     const [count, setCount] = useState(0)
 
+    const incrementFunction = () => {
+	setCount((count) => count + 1);
+    };
+    
     return (
 	<>
 	    
@@ -86,8 +96,10 @@ function App() {
 
 
 	    <section>
-		<h2></h2>
-		<p></p>
+		<h2>1.6. Passing Functions as Props</h2>
+		<p>Function as Props: Pass a function as a prop to a child component that updates the counter state in the parent component.</p>
+		<ChildComponent incFunc={incrementFunction} />
+		count is {count}
 	    </section>
 	    
 	</>
