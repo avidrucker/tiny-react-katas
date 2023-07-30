@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
@@ -78,9 +78,28 @@ function ArrayStateComp () {
 };
 
 
+// 1.8
+const EffectComponent = () => {
+    useEffect(() => {
+	console.log('Component mounted!');
+	
+	return () => {
+	    console.log('Component will unmount!');
+	};
+    }, []); // The empty dependency array ensures this effect runs only once on mount.
+    
+    console.log('Component rendered!');
+
+    return (
+	<p> I am the EffectComponent. Note: This component gets rendered twice in dev due to React's bug checking system. In production, this component gets rendered only once.</p>
+  );
+};
+
+
 function App() {
 
     const [count, setCount] = useState(0)
+    const [toggle, setToggle] = useState(false)
 
     const incrementFunction = () => {
 	setCount((count) => count + 1);
@@ -91,6 +110,7 @@ function App() {
 	    
 	    <h1>React Katas</h1>
 
+	    <hr />
 	    
 	    <section>
 		<h2>1.1. Button & Counter w/ useState</h2>
@@ -103,7 +123,8 @@ function App() {
 		<button onClick={() => setCount((count) => 0)}>Reset count to zero</button>
 		<p>count is {count}</p>
 	    </section>
-
+	    
+	    <hr />
 	    
 	    <section>
 		<h2>1.2. Conditional Rendering</h2>
@@ -111,6 +132,7 @@ function App() {
 		{isEven(count) && <p>count is even</p>}
 	    </section>
 
+	    <hr />
 	    
 	    <section>
 		<h2>1.3. Props Passing & Props Destructuring</h2>
@@ -120,6 +142,7 @@ function App() {
 		<MessageComponent2 message="I'm also a message, passed via destructured props." />
 	    </section>
 
+	    <hr />
 
 	    <section>
 		<h2>1.4. Mapping Arrays & Lists</h2>
@@ -130,6 +153,7 @@ function App() {
 		</ul>
 	    </section>
 
+	    <hr />
 
 	    <section>
 		<h2>1.5. Fragments</h2>
@@ -137,6 +161,7 @@ function App() {
 		<FragmentWrappedComp />
 	    </section>
 
+	    <hr />
 
 	    <section>
 		<h2>1.5. Inline Styling</h2>
@@ -144,6 +169,7 @@ function App() {
 		<p style={{"color": "blue"}}>I am styled to be blue.</p>
 	    </section>
 
+	    <hr />
 
 	    <section>
 		<h2>1.6. Passing Functions as Props</h2>
@@ -152,6 +178,7 @@ function App() {
 		count is {count}
 	    </section>
 
+	    <hr />
 
 	    <section>
 		<h2>1.7. Working With Arrays in State</h2>
@@ -160,12 +187,16 @@ function App() {
 		<ArrayStateComp />
 	    </section>
 
+	    <hr />
 	    
 	    <section>
-		<h2></h2>
-		<p></p>
+		<h2>useEffect Hook</h2>
+		<p>UseEffect Hook: Use the useEffect hook to log a message to the console when the component mounts and unmounts.</p>
+		<button onClick={() => setToggle((toggle) => !toggle)}>{toggle ? "Hide EffectComponent" : "Show EffectComponent"}</button>
+				 {toggle && <EffectComponent />}
 	    </section>
 
+	    <hr />
 	    
 	    <section>
 		<h2></h2>
