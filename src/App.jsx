@@ -158,7 +158,7 @@ function App() {
 			    right: 0}}
 		    onClick={toggleMode}>Toggle Mode</button>
 	    
-	    <h1>React Katas</h1>
+	    <h1>Tiny React Katas</h1>
 
 	    <hr />
 	    
