@@ -99,7 +99,7 @@ const EffectComponent = () => {
 // 1.9
 const BorderWrapper = (props) => {
   return (
-    <div style={{border: "1px solid black"}}>
+    <div style={{border: "1px solid"}}>
       {props.children}
     </div>
   );
@@ -131,7 +131,8 @@ function App() {
 
     const [count, setCount] = useState(0)
     const [toggle, setToggle] = useState(false)
-
+    const [mode, setMode] = useState("light")
+    
     // 1.6 
     const incrementFunction = () => {
 	setCount((count) => count + 1);
@@ -141,9 +142,14 @@ function App() {
     useEffect(() => {
 	console.log(`Counter value has changed to: ${count}`);
     }, [count]);
+
+    // 1.12
+    const toggleMode = () => {
+	setMode(mode === 'light' ? 'dark' : 'light');
+    };
     
     return (
-	<>
+	<main className={`${mode}-theme`}>
 	    
 	    <h1>React Katas</h1>
 
@@ -171,7 +177,7 @@ function App() {
 		<p>Conditional Rendering: Conditionally render a &lt;p&gt; element that says "Counter is even" if counter is an even number.</p>
 		<BorderWrapper>
 		    <div>
-			<p>Conditional text will render below:</p>
+			<p>Conditional text will render below if and when count is even.</p>
 			{isEven(count) && <p>count is even</p>}
 		    </div>
 		</BorderWrapper>
@@ -278,13 +284,22 @@ function App() {
 	    <hr />
 
 	    <section>
-		<h2>1.11. </h2>
-		<p></p>
+		<h2>1.11. Input Change Event</h2>
+		<p>Input Change Event: Add an onChange event handler to a text input element that updates a text state variable.</p>
 		<BorderWrapper>
 		    <TextInput />
 		</BorderWrapper>
 	    </section>
-	</>
+	    
+	    <section>
+		<h2>1.12. Light/Dark Mode</h2>
+		<p>Implement light/dark mode by adding mode state that can be toggled via a button.</p>
+		<BorderWrapper>
+		    <button onClick={toggleMode}>Toggle Mode</button>
+		    the current mode is {mode}
+		</BorderWrapper>
+	    </section>
+	</main>
     )
 }
 
