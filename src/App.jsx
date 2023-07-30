@@ -11,6 +11,12 @@ const MessageComponent = ({message}) => <p>{message}</p>;
 
 const MessageComponent2 = ({...props}) => <p>{props.message}</p>;
 
+const FragmentWrappedComp = () =>
+      (<>
+	   <p>I am a &lt;p&gt; element.</p> 
+	   <p>I am also a &lt;p&gt; element.</p> 
+       </>);
+
 function App() {
     const [count, setCount] = useState(0)
 
@@ -58,7 +64,7 @@ function App() {
 	    <section>
 
 		<h2>1.4. Mapping Arrays & Lists</h2>
-		<p>Mapping Arrays: Given an array of integers, render each integer inside a &lt;li&gt;  element using the map function.</p>
+		<p>Mapping Arrays: Given an array of integers, render each integer inside a &lt;li&gt; element using the map function.</p>
 		<ul style={{"textAlign": "left"}}>
 		    {["a", "b", "c", "d"].map((x, i) =>
 			<li key={i}>{x}</li>)}
@@ -66,6 +72,31 @@ function App() {
 		
 	    </section>
 
+
+	    <section>
+
+		<h2>1.5 Fragments</h2>
+		<p>React Fragments: Wrap two &lt;p&gt; elements with a React Fragment.</p>
+		<FragmentWrappedComp />
+		
+	    </section>
+
+
+	    <section>
+
+		<h2></h2>
+		<p></p>
+		
+	    </section>
+
+
+	    <section>
+
+		<h2></h2>
+		<p></p>
+		
+	    </section>
+	    
 	</>
     )
 }
