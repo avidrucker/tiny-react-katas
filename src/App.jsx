@@ -98,11 +98,12 @@ const EffectComponent = () => {
 
 // 1.9
 const BorderWrapper = (props) => {
-  return (
-    <div style={{border: "1px solid"}}>
-      {props.children}
-    </div>
-  );
+    return (
+	<div style={{border: "1px solid",
+		     padding: "1rem"}}>
+	    {props.children}
+	</div>
+    );
 };
 
 
@@ -131,7 +132,7 @@ function App() {
 
     const [count, setCount] = useState(0)
     const [toggle, setToggle] = useState(false)
-    const [mode, setMode] = useState("light")
+    const [mode, setMode] = useState("dark")
     
     // 1.6 
     const incrementFunction = () => {
@@ -150,6 +151,12 @@ function App() {
     
     return (
 	<main className={`${mode}-theme`}>
+
+	    {/*1.12 floating upper right corner button*/}
+	    <button style={{position: "absolute",
+			    top: 0,
+			    right: 0}}
+		    onClick={toggleMode}>Toggle Mode</button>
 	    
 	    <h1>React Katas</h1>
 
