@@ -12,10 +12,10 @@ function App() {
 
     return (
 	<>
-	    <h1>React Katas 001</h1>
+	    <h1>React Katas</h1>
 	    
 	    <section>
-		<h2>1.1. button & counter w/ useState</h2>
+		<h2>1.1. Button & Counter w/ useState</h2>
 		<p>Declare a state variable named count in a functional component and set its initial value to 0.</p>
 		<p>State Update & Event Handling: Add an onClick event to a button that updates the count state variable by incrementing it by 1.</p>
 		<button onClick={() => setCount((count) => count + 1)}>
