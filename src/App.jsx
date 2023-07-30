@@ -7,8 +7,9 @@ function isEven(x) {
     return x % 2 === 0;
 }
 
-const MessageComponent = ({message}) =>
-      <p>{message}</p>;
+const MessageComponent = ({message}) => <p>{message}</p>;
+
+const MessageComponent2 = ({...props}) => <p>{props.message}</p>;
 
 function App() {
     const [count, setCount] = useState(0)
@@ -39,6 +40,7 @@ function App() {
 		<h2>1.3. Props Passing</h2>
 		<p>Passing Props: Pass a prop named message to a child component and render it inside a &lt;p&gt; tag.</p>
 		<MessageComponent message="Hi, I am a message." />
+		<MessageComponent2 message="I'm also a message, passed via destructured props." />
 	    </section>
 	</>
     )
