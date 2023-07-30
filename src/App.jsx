@@ -4,23 +4,28 @@ import { useState } from 'react'
 import './App.css'
 
 
+// for 1.2
 function isEven(x) {
     return x % 2 === 0;
 }
 
-function ChildComponent({ incFunc }) {
+// for 1.6
+function ChildComponent({ incFunc }) { 
   return (
     <button onClick={incFunc}>Increment Counter</button>
   );
 }
 
 
+// for 1.3
 const MessageComponent = ({message}) => <p>{message}</p>;
 
 
+// for 1.3
 const MessageComponent2 = ({...props}) => <p>{props.message}</p>;
 
 
+// for 1.5
 const FragmentWrappedComp = () =>
       (<>
 	   <p>I am a &lt;p&gt; element.</p> 
@@ -28,17 +33,21 @@ const FragmentWrappedComp = () =>
        </>);
 
 
+// for 1.7
 // This function handles letters a to z.
-// I'm leaving the later letters for next time.
+// I'm leaving the "later" letters for next time.
 function nextLetter(x) {
     // console.log("x is " + x);
     // console.log("a".charCodeAt(0));
     return String.fromCharCode(x.charCodeAt(0) + 1);
 };
 
-const lastItem = (x) => ( x[x.length - 1] );
-// { x.at(-1) };
+// for 1.7
+const lastItem = (x) => ( x.at(-1) );
+// ( x[x.length - 1] ); would also work to get the last item in the array
 
+
+// for 1.7
 function ArrayStateComp () {
     const [arr, setArr] = useState([]);
 
@@ -64,7 +73,7 @@ function ArrayStateComp () {
 	    <button onClick={resetArr}>Reset array back to empty</button>
 	    { arr.length === 0 ?
 	     <p>There is nothing in the array.</p> :
-	     <ol style={{"textAlign": "left"}}>{inspect(arr) && arr.map(x => <li key={x}>{x}</li>)}</ol> }
+	     <ol style={{"textAlign": "left"}}>{/*inspect(arr) && */ arr.map(x => <li key={x}>{x}</li>)}</ol> }
 	</> );
 };
 
