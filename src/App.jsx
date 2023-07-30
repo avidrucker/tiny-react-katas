@@ -4,10 +4,19 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-    
+    const [count, setCount] = useState(0)
+
     return (
 	<>
 	    <h1>React Katas 001</h1>
+	    
+	    <section>
+		<h2>1.1. button & counter w/ useState</h2>
+		<p>Declare a state variable named count in a functional component and set its initial value to 0.</p>
+		<button onClick={() => setCount((count) => count + 1)}>
+		    count is {count}
+		</button>
+	    </section>
 	</>
     )
 }
