@@ -49,6 +49,7 @@ function App() {
 		<h2>1.3. Props Passing & Props Destructuring</h2>
 		<p>Passing Props: Pass a prop named message to a child component and render it inside a &lt;p&gt; tag.</p>
 		<MessageComponent message="Hi, I am a message." />
+		<p>Destructuring Props: Destructure the message prop in the child component and render it.</p>
 		<MessageComponent2 message="I'm also a message, passed via destructured props." />
 		
 	    </section>
