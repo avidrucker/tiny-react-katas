@@ -28,6 +28,47 @@ const FragmentWrappedComp = () =>
        </>);
 
 
+// This function handles letters a to z.
+// I'm leaving the later letters for next time.
+function nextLetter(x) {
+    // console.log("x is " + x);
+    // console.log("a".charCodeAt(0));
+    return String.fromCharCode(x.charCodeAt(0) + 1);
+};
+
+const lastItem = (x) => ( x[x.length - 1] );
+// { x.at(-1) };
+
+function ArrayStateComp () {
+    const [arr, setArr] = useState([]);
+
+    const appendElement = () => {
+	arr.length === 0 ?
+	    setArr([...arr, "a"]) :
+	    setArr([...arr, nextLetter(lastItem(arr))]);
+	    // setArr((x) => x.push("b"))
+    };
+
+    function resetArr() {
+	setArr((x) => []);
+    };
+
+    function inspect(x) {
+	console.log(x);
+	return x;
+    }
+    
+    return (
+	<>
+	    <button onClick={appendElement}>Add item to array</button>
+	    <button onClick={resetArr}>Reset array back to empty</button>
+	    { arr.length === 0 ?
+	     <p>There is nothing in the array.</p> :
+	     <ol style={{"textAlign": "left"}}>{inspect(arr) && arr.map(x => <li key={x}>{x}</li>)}</ol> }
+	</> );
+};
+
+
 function App() {
 
     const [count, setCount] = useState(0)
@@ -104,8 +145,10 @@ function App() {
 
 
 	    <section>
-		<h2></h2>
-		<p></p>
+		<h2>1.7. Working With Arrays in State</h2>
+		<p>Array State: Create an array as a state in a functional component. </p>
+		<p>Array State Update: Add a new item to the array state using the spread operator.</p>
+		<ArrayStateComp />
 	    </section>
 
 	    
