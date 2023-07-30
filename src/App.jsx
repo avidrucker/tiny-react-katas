@@ -106,6 +106,27 @@ const BorderWrapper = (props) => {
 };
 
 
+// 1.11
+function TextInput() {
+  const [text, setText] = useState('');
+
+  const handleChange = (event) => {
+    setText(event.target.value);
+  }
+
+  return (
+    <div>
+	<input type="text"
+	       value={text}
+	       onChange={handleChange}
+	       placeholder="Type text here"
+	/>
+	<p>Input text: {text}</p>
+    </div>
+  );
+}
+
+
 function App() {
 
     const [count, setCount] = useState(0)
@@ -254,6 +275,15 @@ function App() {
 		</BorderWrapper>
 	    </section>
 	    
+	    <hr />
+
+	    <section>
+		<h2>1.11. </h2>
+		<p></p>
+		<BorderWrapper>
+		    <TextInput />
+		</BorderWrapper>
+	    </section>
 	</>
     )
 }
