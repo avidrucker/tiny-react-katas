@@ -247,7 +247,7 @@ function App() {
 	    
 	    <section>
 		<h2>1.10. useEffect Dependency Array</h2>
-		<p>UseEffect Dependency Array: Use the useEffect hook to log a message to the console whenever a counter state variable changes.</p>
+		<p>UseEffect Dependency Array: Use the useEffect hook to log a message to the console whenever the <code>count</code> state variable changes.</p>
 		<BorderWrapper>
 		    <p>See console log for print-outs</p>
 		    <p>Note: There are no extra components associated with this kata to display here.</p>
