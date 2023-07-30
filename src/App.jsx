@@ -79,8 +79,9 @@ function App() {
 
 
 	    <section>
-		<h2></h2>
-		<p></p>
+		<h2>1.5. Inline Styling</h2>
+		<p>Inline Styling: Add inline CSS to a &lt;p&gt; to set its color to blue.</p>
+		<p style={{"color": "blue"}}>I am styled to be blue.</p>
 	    </section>
 
 
