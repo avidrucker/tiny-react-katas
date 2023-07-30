@@ -53,7 +53,19 @@ function App() {
 		<MessageComponent2 message="I'm also a message, passed via destructured props." />
 		
 	    </section>
-	    
+
+
+	    <section>
+
+		<h2>1.4. Mapping Arrays & Lists</h2>
+		<p>Mapping Arrays: Given an array of integers, render each integer inside a &lt;li&gt;  element using the map function.</p>
+		<ul style={{"textAlign": "left"}}>
+		    {["a", "b", "c", "d"].map((x, i) =>
+			<li key={i}>{x}</li>)}
+		</ul>
+		
+	    </section>
+
 	</>
     )
 }
