@@ -101,7 +101,25 @@ function App() {
 		<ChildComponent incFunc={incrementFunction} />
 		count is {count}
 	    </section>
+
+
+	    <section>
+		<h2></h2>
+		<p></p>
+	    </section>
+
 	    
+	    <section>
+		<h2></h2>
+		<p></p>
+	    </section>
+
+	    
+	    <section>
+		<h2></h2>
+		<p></p>
+	    </section>
+
 	</>
     )
 }
