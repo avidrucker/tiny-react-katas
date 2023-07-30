@@ -111,9 +111,15 @@ function App() {
     const [count, setCount] = useState(0)
     const [toggle, setToggle] = useState(false)
 
+    // 1.6 
     const incrementFunction = () => {
 	setCount((count) => count + 1);
     };
+
+    // 1.10
+    useEffect(() => {
+	console.log(`Counter value has changed to: ${count}`);
+    }, [count]);
     
     return (
 	<>
@@ -128,12 +134,12 @@ function App() {
 		<p>State Update & Event Handling: Add an onClick event to a button that updates the count state variable by incrementing it by 1.</p>
 
 		<BorderWrapper>
-		<button onClick={() => setCount((count) => count + 1)}>
+		    <button onClick={() => setCount((count) => count + 1)}>
 		    Increment count by one
 		</button>
-
-		<button onClick={() => setCount((count) => 0)}>Reset count to zero</button>
-		<p>count is {count}</p>
+		    
+		    <button onClick={() => setCount((count) => 0)}>Reset count to zero</button>
+		    <p>count is {count}</p>
 		</BorderWrapper>
 	    </section>
 	    
@@ -145,7 +151,7 @@ function App() {
 		<BorderWrapper>
 		    <div>
 			<p>Conditional text will render below:</p>
-		{isEven(count) && <p>count is even</p>}
+			{isEven(count) && <p>count is even</p>}
 		    </div>
 		</BorderWrapper>
 	    </section>
@@ -166,10 +172,10 @@ function App() {
 		<h2>1.4. Mapping Arrays & Lists</h2>
 		<p>Mapping Arrays: Given an array of integers, render each integer inside a &lt;li&gt; element using the map function.</p>
 		<BorderWrapper>
-		<ul style={{"textAlign": "left"}}>
-		    {["a", "b", "c", "d"].map((x, i) =>
-			<li key={i}>{x}</li>)}
-		</ul>
+		    <ul style={{"textAlign": "left"}}>
+			{["a", "b", "c", "d"].map((x, i) =>
+			    <li key={i}>{x}</li>)}
+		    </ul>
 		</BorderWrapper>
 	    </section>
 
@@ -179,7 +185,7 @@ function App() {
 		<h2>1.5. Fragments</h2>
 		<p>React Fragments: Wrap two &lt;p&gt; elements with a React Fragment.</p>
 		<BorderWrapper>
-		<FragmentWrappedComp />
+		    <FragmentWrappedComp />
 		</BorderWrapper>
 	    </section>
 
@@ -189,7 +195,7 @@ function App() {
 		<h2>1.5. Inline Styling</h2>
 		<p>Inline Styling: Add inline CSS to a &lt;p&gt; to set its color to blue.</p>
 		<BorderWrapper>
-		<p style={{"color": "blue"}}>I am styled to be blue.</p>
+		    <p style={{"color": "blue"}}>I am styled to be blue.</p>
 		</BorderWrapper>
 	    </section>
 
@@ -199,8 +205,8 @@ function App() {
 		<h2>1.6. Passing Functions as Props</h2>
 		<p>Function as Props: Pass a function as a prop to a child component that updates the counter state in the parent component.</p>
 		<BorderWrapper>
-		<ChildComponent incFunc={incrementFunction} />
-		count is {count}
+		    <ChildComponent incFunc={incrementFunction} />
+		    count is {count}
 		</BorderWrapper>
 	    </section>
 
@@ -211,7 +217,7 @@ function App() {
 		<p>Array State: Create an array as a state in a functional component. </p>
 		<p>Array State Update: Add a new item to the array state using the spread operator.</p>
 		<BorderWrapper>
-		<ArrayStateComp />
+		    <ArrayStateComp />
 		</BorderWrapper>
 	    </section>
 
@@ -222,8 +228,8 @@ function App() {
 		<p>UseEffect Hook: Use the useEffect hook to log a message to the console when the component mounts and unmounts.</p>
 		<BorderWrapper>
 		    <p>See console log for print-outs</p>
-		<button onClick={() => setToggle((toggle) => !toggle)}>{toggle ? "Hide EffectComponent" : "Show EffectComponent"}</button>
-				 {toggle && <EffectComponent />}
+		    <button onClick={() => setToggle((toggle) => !toggle)}>{toggle ? "Hide EffectComponent" : "Show EffectComponent"}</button>
+		    {toggle && <EffectComponent />}
 		</BorderWrapper>
 	    </section>
 
@@ -238,8 +244,16 @@ function App() {
 	    </section>
 
 	    <hr />
+	    
+	    <section>
+		<h2>1.10. useEffect Dependency Array</h2>
+		<p>UseEffect Dependency Array: Use the useEffect hook to log a message to the console whenever a counter state variable changes.</p>
+		<BorderWrapper>
+		    <p>See console log for print-outs</p>
+		    <p>Note: There are no extra components associated with this kata to display here.</p>
+		</BorderWrapper>
 	    </section>
-
+	    
 	</>
     )
 }
