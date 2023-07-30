@@ -72,7 +72,7 @@ function App() {
 
 
 	    <section>
-		<h2>1.5 Fragments</h2>
+		<h2>1.5. Fragments</h2>
 		<p>React Fragments: Wrap two &lt;p&gt; elements with a React Fragment.</p>
 		<FragmentWrappedComp />
 	    </section>
