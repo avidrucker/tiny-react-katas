@@ -27,10 +27,10 @@ const MessageComponent2 = ({...props}) => <p>{props.message}</p>;
 
 // for 1.5
 const FragmentWrappedComp = () =>
-      (<>
-	   <p>I am a &lt;p&gt; element.</p> 
-	   <p>I am also a &lt;p&gt; element.</p> 
-       </>);
+    (<>
+	<p>I am a &lt;p&gt; element.</p> 
+	<p>I am also a &lt;p&gt; element.</p> 
+	</>);
 
 
 // for 1.7
@@ -40,7 +40,7 @@ function nextLetter(x) {
     // console.log("x is " + x);
     // console.log("a".charCodeAt(0));
     return String.fromCharCode(x.charCodeAt(0) + 1);
-};
+}
 
 // for 1.7
 const lastItem = (x) => ( x.at(-1) );
@@ -53,29 +53,29 @@ function ArrayStateComp () {
 
     const appendElement = () => {
 	arr.length === 0 ?
-	    setArr([...arr, "a"]) :
-	    setArr([...arr, nextLetter(lastItem(arr))]);
-	    // setArr((x) => x.push("b"))
+		setArr([...arr, "a"]) :
+		setArr([...arr, nextLetter(lastItem(arr))]);
+		// setArr((x) => x.push("b"))
     };
 
     function resetArr() {
-	setArr((x) => []);
-    };
+		setArr(() => []);
+    }
 
     function inspect(x) {
-	console.log(x);
-	return x;
+		console.log(x);
+		return x;
     }
     
     return (
 	<>
-	    <button onClick={appendElement}>Add item to array</button>
-	    <button onClick={resetArr}>Reset array back to empty</button>
-	    { arr.length === 0 ?
-	     <p>There is nothing in the array.</p> :
-	     <ol style={{"textAlign": "left"}}>{/*inspect(arr) && */ arr.map(x => <li key={x}>{x}</li>)}</ol> }
+		<button onClick={appendElement}>Add item to array</button>
+		<button onClick={resetArr}>Reset array back to empty</button>
+		{ arr.length === 0 ?
+		<p>There is nothing in the array.</p> :
+		<ol style={{"textAlign": "left"}}>{/*inspect(arr) && */ arr.map(x => <li key={x}>{x}</li>)}</ol> }
 	</> );
-};
+}
 
 
 // 1.8
@@ -84,7 +84,7 @@ const EffectComponent = () => {
 	console.log('Component mounted!');
 	
 	return () => {
-	    console.log('Component will unmount!');
+		console.log('Component will unmount!');
 	};
     }, []); // The empty dependency array ensures this effect runs only once on mount.
     
